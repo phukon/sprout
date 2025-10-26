@@ -414,9 +414,7 @@ btop --force-utf
 - [ ] Dependency graph visualization
 - [ ] Version pinning and lock files
 - [ ] Plugin system for custom build strategies
-- [ ] Web UI for package browsing
 - [ ] Package metadata and descriptions
-- [ ] Automatic dependency detection from build files
 - [ ] Rollback mechanism
 
 ## 🤔 Why sprout?
@@ -429,22 +427,7 @@ btop --force-utf
 - ✅ Easy to package your own projects
 - ✅ Multiple versions coexist peacefully
 
-**Trade-offs:**
-- ⏱️ Slower than binary package managers
-- 🔧 Requires build tools installed
-- 📦 No metadata like descriptions, keywords
-- 🔍 Discovery requires knowing repository URLs
-
-## 📄 License
-
-MIT License - see [LICENSE](LICENSE) file
-
-## 🙏 Acknowledgments
-
-Built with [Bun](https://bun.sh) - the fast all-in-one JavaScript runtime.
-
-Inspired by source-based package managers like Portage, Homebrew, and cargo.
-
+Inspired by [pkgit](https://github.com/dacctal/pkgit)
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
@@ -454,4 +437,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
