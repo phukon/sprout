@@ -29,6 +29,23 @@ sprout is a minimalist, source-based package manager built with Bun. It automati
 
 ## Installation
 
+### Download Pre-built Binaries
+
+Download the latest release from [GitHub Releases](https://github.com/phukon/sprout/releases):
+
+```bash
+# Download the binary for your platform
+# Make it executable
+chmod +x sprout-linux-x64
+
+# Install system-wide (requires sudo)
+sudo mv sprout-linux-x64 /usr/local/bin/sprout
+```
+
+### Build from Source
+
+If you prefer to build from source using Bun.js:
+
 ```bash
 # Clone the repository
 git clone https://github.com/phukon/sprout.git
@@ -38,7 +55,7 @@ cd sprout
 bun install
 
 # Build sprout
-bun run build
+bun run build:binaries
 
 # Make it available system-wide (requires sudo)
 sudo ln -s $(pwd)/dist/cli.js /usr/local/bin/sprout
