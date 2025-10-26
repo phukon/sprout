@@ -1,5 +1,17 @@
 import { homedir } from "os";
 import path from "path";
+import { readFileSync } from "fs";
+
+function getVersion(): string {
+  try {
+    const packageJsonPath = path.join(process.cwd(), "package.json");
+    const packageJson = JSON.parse(readFileSync(packageJsonPath, "utf8"));
+    return packageJson.version;
+  } catch (error) {
+    console.error("Warning: Could not read package.json, using fallback version");
+    return "0.1.0";
+  }
+}
 
 export interface Config {
   dirs: {
@@ -38,7 +50,7 @@ export const config: Config = {
   files: {
     repos: "/etc/sprout/repos/repos",
   },
-  version: "0.1.0-typescript",
+  version: getVersion(),
 };
 
 export const homeDir = homedir();

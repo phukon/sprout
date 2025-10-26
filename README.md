@@ -1,18 +1,16 @@
-
 <div align="center">
 
-<img width="1142" height="744" alt="image" src="https://github.com/user-attachments/assets/6c6677b0-54a0-4d38-98d3-504770ae94e4" />
+<img alt="image-removebg-preview" src="https://github.com/user-attachments/assets/4d0039a0-fdb6-446e-9c71-ac5307044c31" />
 
 *(🌱 plant and grow your packages efficiently!)*
 
 </div>
 
 
-> An unconventional package manager that compiles and installs software directly from Git repositories
 
-sprout is a minimalist, source-based package manager built with Bun. It automatically detects build systems, resolves dependencies, compiles from source, and manages installations—all from Git repositories.
+sprout is a minimalist, source-based package manager built with Bun. It automatically detects build systems, resolves dependencies, compiles from source, and manages installations all from Git repositories.
 
-## ✨ Features
+## Features
 
 - **Git-Native**: Install packages directly from any Git repository
 - **Auto-Detection**: Automatically detects and uses the appropriate build system
@@ -23,14 +21,13 @@ sprout is a minimalist, source-based package manager built with Bun. It automati
 - **Source-Based**: Always compiles from source for your specific system
 - **Decentralized**: No central registry required—any Git repo can be a package
 
-## 📋 Requirements
+## Requirements
 
-- [Bun](https://bun.sh) v1.3.0 or higher
 - Git
 - Root/sudo access (for system-wide installation)
 - Build tools for your target packages (gcc, make, cmake, cargo, etc.)
 
-## 🚀 Installation
+## Installation
 
 ```bash
 # Clone the repository
@@ -47,7 +44,7 @@ bun run build
 sudo ln -s $(pwd)/dist/cli.js /usr/local/bin/sprout
 ```
 
-## 🎯 Quick Start
+## Quick Start
 
 ```bash
 # Add a package repository
@@ -81,7 +78,7 @@ sprout switch btop v1.2.13
 sprout versions btop
 ```
 
-## 📖 How It Works
+## How It Works
 
 ### Architecture Overview
 
@@ -91,7 +88,7 @@ sprout follows a pipeline architecture:
 Repository → Clone → Dependencies → Build → Install → Symlink
 ```
 
-#### 1. **Repository Management**
+#### 1. Repository Management
 
 Repositories are stored as plain text URLs in `/etc/sprout/repos/repos`:
 
@@ -103,7 +100,7 @@ https://github.com/BurntSushi/ripgrep
 
 When you install a package, sprout searches through registered repositories to find a matching package name.
 
-#### 2. **Git Clone**
+#### 2. Git Clone
 
 Packages are cloned into `/var/sprout/build/[package]/[version]/`:
 
@@ -119,7 +116,7 @@ Packages are cloned into `/var/sprout/build/[package]/[version]/`:
 
 sprout uses shallow clones (`--depth 1`) for faster downloads.
 
-#### 3. **Dependency Resolution**
+#### 3. Dependency Resolution
 
 Dependencies are declared in `pkgdeps` files:
 
@@ -136,7 +133,7 @@ https://github.com/user/custom-dep
 
 Dependencies are installed recursively before building the main package.
 
-#### 4. **Build System Detection**
+#### 4. Build System Detection
 
 sprout automatically detects the build system by looking for specific files:
 
@@ -158,7 +155,7 @@ sprout automatically detects the build system by looking for specific files:
 2. Project bldit script in repository root
 3. Registered build strategies (tried in order)
 
-#### 5. **Custom Build Scripts**
+#### 5. Custom Build Scripts
 
 For packages with complex build processes, you can create custom `bldit` scripts:
 
@@ -178,7 +175,7 @@ bldit() {
 
 **Project-level**: Repository root `bldit` file (shipped with the package)
 
-#### 6. **File Installation**
+#### 6. File Installation
 
 After building, sprout scans the build directory for:
 
@@ -195,7 +192,7 @@ Files are copied to:
 /usr/include/                            # Headers
 ```
 
-#### 7. **Symlink Creation**
+#### 7. Symlink Creation
 
 Executables are symlinked to `/usr/bin/` for easy access:
 
@@ -244,7 +241,7 @@ This allows:
 /usr/include/            # Header files
 ```
 
-## 🔧 Advanced Usage
+## Advanced Usage
 
 ### Adding Multiple Repositories
 
@@ -334,7 +331,7 @@ sprout l | grep package
 sprout f btop
 ```
 
-## 🤝 Package Repository Format
+## Package Repository Format
 
 To make your project installable with sprout, ensure:
 
@@ -370,7 +367,7 @@ bldit() {
 }
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Package not found
 ```bash
@@ -406,7 +403,7 @@ sudo locale-gen en_US.UTF-8
 btop --force-utf
 ```
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [ ] Parallel dependency installation
 - [ ] Build caching
@@ -417,23 +414,14 @@ btop --force-utf
 - [ ] Package metadata and descriptions
 - [ ] Rollback mechanism
 
-## 🤔 Why sprout?
+## Why sprout?
 
 **Advantages:**
-- ✅ No central registry bottleneck
-- ✅ Always get the latest code
-- ✅ Optimized for your specific system
-- ✅ Full source transparency
-- ✅ Easy to package your own projects
-- ✅ Multiple versions coexist peacefully
+- No central registry bottleneck
+- Always get the latest code
+- Optimized for your specific system
+- Full source transparency
+- Easy to package your own projects
+- Multiple versions coexist peacefully
 
 Inspired by [pkgit](https://github.com/dacctal/pkgit)
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request

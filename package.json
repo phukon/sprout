@@ -1,7 +1,7 @@
 {
   "name": "sprout",
   "module": "index.ts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "main": "dist/cli.js",
   "bin": {
@@ -11,6 +11,7 @@
   "scripts": {
     "dev": "bun run src/cli.ts",
     "build": "bun build src/cli.ts --outdir dist --target bun --minify",
+    "build:binaries": "bun build-binaries.js",
     "test": "bun test",
     "type-check": "tsc --noEmit",
     "lint": "eslint src/**/*.ts"
